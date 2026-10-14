@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:baseForm="https://soap.api.nav.gov.hu/definitions/model/2.0/baseForm/1.0"
+        xmlns:meta="https://api.nav.gov.hu/definitions/form_xsd_metaschema/1.0"
+        xmlns:tns="https://soap.api.nav.gov.hu/definitions/model/2.0/KVKPELL/3.0"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        targetNamespace="https://soap.api.nav.gov.hu/definitions/model/2.0/KVKPELL/3.0">
+   <import namespace="https://api.nav.gov.hu/definitions/form_xsd_metaschema/1.0"
+           schemaLocation="form_xsd_metaschema.xsd"/>
+   <import namespace="https://soap.api.nav.gov.hu/definitions/model/2.0/baseForm/1.0"
+           schemaLocation="baseForm.xsd"/>
+   <element name="Doc_KVKPELL"
+            type="tns:Doc_KVKPELL_Type"
+            meta:metaType="DocMetaType">
+      <annotation>
+         <documentation>Adatszolgáltatás az általános forgalmi adóról szóló 2007. évi CXXVII. törvény 129. §-a szerinti partnerellenőrzés eredményeiről</documentation>
+      </annotation>
+      <xs:unique name="uniqueFileId_Attachment_1">
+         <xs:selector xpath="Form_KVKPELLM/Attachment_1"/>
+         <xs:field xpath="fileId"/>
+      </xs:unique>
+   </element>
+   <complexType name="Doc_KVKPELL_Type">
+      <annotation>
+         <documentation>A teljes bizonylat szerkezetet leíró típus</documentation>
+      </annotation>
+      <sequence>
+         <element name="Form_KVKPELLA"
+                  type="tns:Form_KVKPELLA_Type"
+                  minOccurs="1"
+                  maxOccurs="1"
+                  meta:metaType="FormMetaType">
+            <annotation>
+               <documentation>KVKPELLA részbizonylat</documentation>
+            </annotation>
+         </element>
+         <element name="Form_KVKPELLM"
+                  type="tns:Form_KVKPELLM_Type"
+                  minOccurs="1"
+                  maxOccurs="unbounded"
+                  meta:metaType="FormMetaType">
+            <annotation>
+               <documentation>KVKPELLM részbizonylat</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="Form_KVKPELLA_Type">
+      <annotation>
+         <documentation>A teljes nyomtatvány KVKPELLA részbiztonylatának szerkezetét leíró típus.</documentation>
+      </annotation>
+      <sequence>
+         <element name="Block_120001"
+                  type="tns:Block_KVKPELLA_120001_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>Azonosító adatok</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="Block_KVKPELLA_120001_Type">
+      <annotation>
+         <documentation>Azonosító adatok</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120002"
+                  type="tns:FieldGroup_KVKPELLA_120002_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Adatszolgáltató adatai</documentation>
+            </annotation>
+         </element>
+         <element name="FieldGroup_120003"
+                  type="tns:FieldGroup_KVKPELLA_120003_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Adatszolgáltatás jellemzői</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLA_120002_Type">
+      <annotation>
+         <documentation>Adatszolgáltató adatai</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001C001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Adószáma (adoszam)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="11"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C002A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Adóazonosító jele (adoazon)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C004A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Neve (nev)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="80"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLA_120003_Type">
+      <annotation>
+         <documentation>Adatszolgáltatás jellemzői</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001C005A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Időszak (év, hónap) (idoszak_ev)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="6"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C003A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Hibásnak minősített adatszolgáltatás vonalkódja (vonalkod)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001A001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Számított mező, tartalma kalkulációval (vagy XPath futtatással) kerül meghatározásra. ¦ (stat_bekuldes_modja)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="1"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C006A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Számított mező, tartalma kalkulációval (vagy XPath futtatással) kerül meghatározásra. ¦ (lap_m)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="9"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <simpleType name="Enum_KVKPELLM_0A0001E0020AA">
+      <annotation>
+         <documentation>Enum értékek </documentation>
+      </annotation>
+      <restriction base="xs:string">
+         <enumeration value="1">
+            <annotation>
+               <documentation>1=saját partnerellenőrzést végeztem, belső erőforrással oldottam meg</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="2">
+            <annotation>
+               <documentation>2=szakértő segítségét vettem igénybe a partnerellenőrzés értékelése során</documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+   </simpleType>
+   <simpleType name="Enum_KVKPELLM_0A0001E0030AA">
+      <annotation>
+         <documentation>Enum értékek </documentation>
+      </annotation>
+      <restriction base="xs:string">
+         <enumeration value="I">
+            <annotation>
+               <documentation>I=Igen</documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="N">
+            <annotation>
+               <documentation>N=Nem</documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+   </simpleType>
+   <simpleType name="Enum_KVKPELLM_0A0001F0040AA">
+      <annotation>
+         <documentation>Enum értékek </documentation>
+      </annotation>
+      <restriction base="xs:string">
+         <enumeration value="H">
+            <annotation>
+               <documentation>H</documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+   </simpleType>
+   <simpleType name="Enum_KVKPELLM_0A0001F0041AA">
+      <annotation>
+         <documentation>Enum értékek </documentation>
+      </annotation>
+      <restriction base="xs:string">
+         <enumeration value="T">
+            <annotation>
+               <documentation>T</documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+   </simpleType>
+   <complexType name="Form_KVKPELLM_Type">
+      <annotation>
+         <documentation>A teljes nyomtatvány KVKPELLM részbiztonylatának szerkezetét leíró típus.</documentation>
+      </annotation>
+      <sequence>
+         <element name="Block_120038"
+                  type="tns:Block_KVKPELLM_120038_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>Importőr partnerellenőrzésének adatai</documentation>
+            </annotation>
+         </element>
+         <element name="Attachment_1"
+                  type="baseForm:AttachmentType"
+                  minOccurs="0"
+                  maxOccurs="1"
+                  meta:metaType="AttachmentMetaType">
+            <annotation>
+               <documentation>KVKPELL; File Extensions:PDF</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="Block_KVKPELLM_120038_Type">
+      <annotation>
+         <documentation>Importőr partnerellenőrzésének adatai</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120039"
+                  type="tns:FieldGroup_KVKPELLM_120039_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Adatszolgáltató adata</documentation>
+            </annotation>
+         </element>
+         <element name="FieldGroup_120040"
+                  type="tns:FieldGroup_KVKPELLM_120040_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Importőr adatai</documentation>
+            </annotation>
+         </element>
+         <element name="FieldGroup_120049"
+                  type="tns:FieldGroup_KVKPELLM_120049_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Partnerellenőrzés adatai</documentation>
+            </annotation>
+         </element>
+         <element name="Chain_120091"
+                  type="tns:Chain_KVKPELLM_120091_Type"
+                  minOccurs="0"
+                  meta:metaType="ChainMetaType">
+            <annotation>
+               <documentation>Nyilatkozat az azonosított kockázatokról</documentation>
+            </annotation>
+         </element>
+         <element name="FieldGroup_120048"
+                  type="tns:FieldGroup_KVKPELLM_120048_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Nyilatkozat az adólevonási jog engedményezéséről</documentation>
+            </annotation>
+         </element>
+         <element name="FieldGroup_120078"
+                  type="tns:FieldGroup_KVKPELLM_120078_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Helyesbítés - Törlés jelölése</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="Chain_KVKPELLM_120091_Type">
+      <annotation>
+         <documentation>Nyilatkozat az azonosított kockázatokról</documentation>
+      </annotation>
+      <sequence>
+         <element name="Chain_elem" minOccurs="0" maxOccurs="60">
+            <annotation>
+               <documentation>Lánc ismétlődő elemei</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element name="FieldGroup_120092"
+                           type="tns:FieldGroup_KVKPELLM_120092_Type"
+                           minOccurs="1"
+                           meta:metaType="FieldGroupMetaType">
+                     <annotation>
+                        <documentation>Nyilatkozat az azonosított kockázatokról</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLM_120039_Type">
+      <annotation>
+         <documentation>Adatszolgáltató adata</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001C001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Adószáma (adatszolg_adoszam)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="11"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C002A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Adóazonosító jele (adatszolg_adoazon)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C003A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Neve (adatszolg_nev)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="80"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLM_120040_Type">
+      <annotation>
+         <documentation>Importőr adatai</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001D0001AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Adószáma / csoportazonosító száma ([M]A1)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="8"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001D0002AA"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Még nem rendelkezik adószámmal ([M]A2)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001D0003AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Külföldi azonosító száma ([M]A3)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="30"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001D0004AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Neve ([M]A4)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="80"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001D0005AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>EORI száma ([M]A5)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="17"/>
+                  <pattern value="[A-Z0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001D50000A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Csoporttag adószáma ([M]A6)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="8"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLM_120049_Type">
+      <annotation>
+         <documentation>Partnerellenőrzés adatai</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001E0020AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0020AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Ki végezte a partnerellenőrzés értékelését? ([M]A20)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001E0021AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A megbízottam neve ([M]A21)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="80"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001E0022AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A megbízottam adószáma ([M]A22)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="8"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001E0030AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0030AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Megvizsgáltam a NAV által megadott kockázati információkat ([M]A30)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001E0031AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0030AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Használtam nyilvános céginformációs adatbázist ([M]A31)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001E0032AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0030AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Használtam nyilvános kockázati adatbázist ([M]A32)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001E0033AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0030AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Birtokomban van az importáló aláírási címpéldánya ([M]A33)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001E0034AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0030AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Birtokomban van az importáló cégkivonata ([M]A34)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001E0035AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001E0030AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Birtokomban van az importáló vezető tisztségviselő személyazonosításra alkalmas okmányának másolata ([M]A35)</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLM_120048_Type">
+      <annotation>
+         <documentation>Nyilatkozat az adólevonási jog engedményezéséről</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0C0001C001A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A partnerellenőrzés eredménye alapján az adólevonási jog engedményezésre kerül ([02]A1)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0C0001C002A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>A partnerellenőrzés eredménye alapján az adólevonási jog nem kerül engedményezésre ([02]A2)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0C0001C0006AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>az alábbi ok(ok)ból: ([02]A6)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="2000"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLM_120078_Type">
+      <annotation>
+         <documentation>Helyesbítés - Törlés jelölése</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001F0040AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001F0040AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Jelölje H-val, ha az adatszolgáltatása adózói javításnak (helyesbítésnek) minősül ([M]A40)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001F0041AA"
+                  minOccurs="0"
+                  type="tns:Enum_KVKPELLM_0A0001F0041AA"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Jelölje T-vel, ha az importőrrel kapcsolatosan adatszolgáltatási kötelezettség nem terhelte (Törlés) ([M]A41)</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KVKPELLM_120092_Type">
+      <annotation>
+         <documentation>Nyilatkozat az azonosított kockázatokról</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0BXXXXC0001AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Kockázat ([01]A1)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="160"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0BXXXXC0011AA"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Megszűntetésre tett intézkedés (ha van) ([01]A11)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="320"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+</schema>
